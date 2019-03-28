@@ -7,11 +7,11 @@ namespace DatotekeUDirektoriju01
 {
     class Datoteke
     {
+        private static string nova = "";
         //izradimo ukupni put za datoteku
         public static string NovaPutanja(List<string> np)
         {
-            string nova = "";
-            for (int i = 0; i < np.Count-1; i++)
+            for (int i = 0; i < np.Count; i++)
             {
                 nova += np[i];
             }
@@ -21,7 +21,7 @@ namespace DatotekeUDirektoriju01
         public static List<string> DatotekeLista(string put)
         {
             DirectoryInfo datoteke = new DirectoryInfo(put); //dobijemo informacije o diskovima
-            FileInfo[] sveDatoteke = datoteke.GetFiles();
+            FileInfo[] sveDatoteke = datoteke.GetFiles(".",SearchOption.TopDirectoryOnly);
             List<string> imeDatoteke = new List<string>();
             foreach (FileInfo item in sveDatoteke)
             {

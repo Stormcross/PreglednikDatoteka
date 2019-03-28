@@ -11,22 +11,21 @@ namespace DatotecniSustav01
         //globalne varijable
         private static string put = "";
         private static int index = 0;
-        private static List<string> cijelaPutanja = new List<string>();
+        private static List<string> djeloviPutanja = new List<string>();
 
         static void Main(string[] args)
         {
             Console.CursorVisible = false; //maknemo blinkajucu liniju
 
-            while (cijelaPutanja.Count==0)
+            while (put == "")
             {
                 //Početna stranica
                 Console.WriteLine("******** Pocetak menu *********");
                 put = NacrtajMeni(Disks.pocetnaDisk(), put);
-                cijelaPutanja.Add(put);
             }
-            while (cijelaPutanja.Count!=0)
-            {
 
+            while (djeloviPutanja.Count != 0)
+            {
                 //pokrenemo drugi window
                 index = 0;
                 Console.Clear();
@@ -47,6 +46,7 @@ namespace DatotecniSustav01
         //Metoda za crtanje liste
         private static string NacrtajMeni(List<string> lista, string put)
         {
+            
             //Slaganje promjene boje na označenom itemu
             for (int i = 0; i < lista.Count; i++)
             {
@@ -97,8 +97,11 @@ namespace DatotecniSustav01
                     Environment.Exit(0);
                 }
                 //Console.Clear();
-
-                return put = lista[index];
+                put = lista[index]; //put dobije gdje se trenutno nalazimo s pokazivacem
+                djeloviPutanja.Add(put);
+                //put= Datoteke.NovaPutanja(djeloviPutanja);
+                index = 0;
+                return put;
             }
             else
             {
@@ -107,7 +110,7 @@ namespace DatotecniSustav01
             }
             Console.Clear();
             return "";
-        } //Nacrtaj meni
+        } //meni metoda
     }
 }
 
