@@ -20,18 +20,18 @@ namespace DatotecniSustav01
             while (put == "")
             {
                 //Početna stranica
-                Console.WriteLine("******** Pocetak menu *********");
+                Console.WriteLine("******** Pocetak menu Diskovi *********");
                 put = NacrtajMeni(Disks.pocetnaDisk(), put);
             }
-
-            while (djeloviPutanja.Count != 0)
+            
+            while (true)
             {
+
                 //pokrenemo drugi window
-                index = 0;
+                //refresh console
                 Console.Clear();
                 Console.WriteLine("******** Datoteke *********");
-
-                put = NacrtajMeni(Datoteke.DatotekeLista(put), put);
+                put = NacrtajMeni(Datoteke.DatotekeLista(djeloviPutanja[djeloviPutanja.Count - 1]), djeloviPutanja[djeloviPutanja.Count - 1]);
 
             }
 
@@ -46,7 +46,7 @@ namespace DatotecniSustav01
         //Metoda za crtanje liste
         private static string NacrtajMeni(List<string> lista, string put)
         {
-            
+
             //Slaganje promjene boje na označenom itemu
             for (int i = 0; i < lista.Count; i++)
             {
@@ -98,14 +98,15 @@ namespace DatotecniSustav01
                 }
                 //Console.Clear();
                 put = lista[index]; //put dobije gdje se trenutno nalazimo s pokazivacem
-                djeloviPutanja.Add(put);
-                //put= Datoteke.NovaPutanja(djeloviPutanja);
+                djeloviPutanja.Add(put); //dodajemo trenutni izbor na listu djelovi putanje
                 index = 0;
+                //napravimo novi put na zadnjem mjestu na listi
+                djeloviPutanja.Add(Datoteke.NovaPutanja(djeloviPutanja));
                 return put;
             }
             else
             {
-                //Console.Clear();
+                Console.Clear();
                 return "";
             }
             Console.Clear();
