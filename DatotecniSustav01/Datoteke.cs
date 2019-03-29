@@ -27,15 +27,15 @@ namespace DatotekeUDirektoriju01
         public static List<string> DatotekeLista(string put)
         {
             DirectoryInfo datoteke = new DirectoryInfo(put); //dobijemo informacije o diskovima
-            DirectoryInfo[] sveDatoteke = datoteke.GetDirectories();
-            List<string> imeDatoteke = new List<string>();
+            DirectoryInfo[] sveDatoteke = datoteke.GetDirectories(); //dobijemo info o datotekama
+            List<string> imeDatoteke = new List<string>(); //lista za spremanje imena datoteka
             foreach (DirectoryInfo item in sveDatoteke)
             {
-                imeDatoteke.Add(item.Name);
+                imeDatoteke.Add(item.Name); //dodavanje imena u listu
             }
             //dodamo Exit metodu za izlaz iz programa
             imeDatoteke.Add("Exit");
-            return imeDatoteke;
+            return imeDatoteke; //vracamo imena datoteka koja se nalaze u folderu
         }
     }
 }

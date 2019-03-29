@@ -23,30 +23,21 @@ namespace DatotecniSustav01
                 Console.WriteLine("******** Pocetak menu Diskovi *********");
                 put = NacrtajMeni(Disks.pocetnaDisk(), put);
             }
-            
+
             while (true)
             {
-
                 //pokrenemo drugi window
                 //refresh console
                 Console.Clear();
-                Console.WriteLine("******** Datoteke *********");
+                Console.WriteLine("******** Datoteke koje se nalaze u Folderu *********");
                 put = NacrtajMeni(Datoteke.DatotekeLista(djeloviPutanja[djeloviPutanja.Count - 1]), djeloviPutanja[djeloviPutanja.Count - 1]);
-
             }
-
-
-
             //ovdje ide orginalni kod
-
-
         } //Main
-
 
         //Metoda za crtanje liste
         private static string NacrtajMeni(List<string> lista, string put)
         {
-
             //Slaganje promjene boje na označenom itemu
             for (int i = 0; i < lista.Count; i++)
             {
@@ -63,6 +54,7 @@ namespace DatotecniSustav01
                 }
                 Console.ResetColor();
             }
+            Console.WriteLine("***************************************");
 
             //Funkcije koje ce se desavati pritiskom tipke na tipkovnici
             ConsoleKeyInfo pritisnutaTipka = Console.ReadKey(); //ocitavanje tipke
@@ -114,8 +106,7 @@ namespace DatotecniSustav01
         } //meni metoda
     }
 }
-
-
+//orignal kod koji je bio unutra
 /*
            //Put za direktorij
            string putDir = @"C:\";

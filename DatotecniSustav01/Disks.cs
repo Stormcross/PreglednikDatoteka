@@ -7,7 +7,7 @@ namespace DatotekeUDirektoriju01
 {
     public static class Disks
     {
-
+        // Klasa za dobivanje informacija disk
         public static List<string> pocetnaDisk()
         {
             DriveInfo[] sviDiskovi = DriveInfo.GetDrives(); //dobijemo informacije o diskovima
